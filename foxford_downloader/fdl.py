@@ -37,6 +37,14 @@ def main(params: Dict) -> None:
             session
         )
     )
+    user_courses_tmp = []
+    for course in user_courses:
+        try:
+            user_courses_tmp.append(course)
+        except KeyError:
+            pass
+
+    user_courses = tuple(user_courses_tmp)
 
     course_query: Dict[str, str] = prompt([
         {
